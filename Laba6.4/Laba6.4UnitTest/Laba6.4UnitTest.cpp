@@ -15,8 +15,8 @@ namespace Laba64UnitTest
 			const int i = 5;
 			int B[i] = { 5, 4, 2, 6, 0 };
 			double actual;
-			double exp = 7;
-			actual = Suma(B, i);
+			double exp = 0;
+			actual = Product(B, i);
 			Assert::AreEqual(actual, exp);
 		}
 	};

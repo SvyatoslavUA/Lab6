@@ -18,12 +18,12 @@ void Print(int* B, int num)
         cout << setw(5) << B[i];
     cout << endl;
 }
-int Suma(int B[], int num)
+int Product(int B[], int num)
     {
-        int sum = 0;
+        int sum = 1;
         for (int i = 0; i < num; i++)
             if ((i % 2) == 0)
-            sum += B[i];
+            sum *= B[i];
         return sum;
     }
 
@@ -45,7 +45,7 @@ int FindSecond(int B[], int num)
 int Suma0(int B[], int firstZeroIndex, int lastZeroIndex)
 {
     int sum = 0;
-    for (int i = firstZeroIndex; i < lastZeroIndex; i++)
+    for (int i = firstZeroIndex + 1; i < lastZeroIndex; i++)
             sum += B[i];
     return sum;
 }
@@ -87,7 +87,7 @@ int main()
    int* StartedArr = Create(num, Low, High);
     
     Print(StartedArr, num);
-    cout << "Sum of elements with even position = " << Suma(StartedArr, num) << endl;
+    cout << "Product of elements with even position = " << Product(StartedArr, num) << endl;
    
     int firstZeroIndex = FindFirst(StartedArr, num);
     int lastZeroIndex = FindSecond(StartedArr, num);
@@ -108,7 +108,7 @@ int main()
 
     
     delete[] StartedArr;
-
+    delete[] SortedArr;
     return 0;
 }
 
