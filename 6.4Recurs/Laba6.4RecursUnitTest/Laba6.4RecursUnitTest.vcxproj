@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{F068BBFD-A680-4706-A784-DBF1D96D9325}</ProjectGuid>
+    <ProjectGuid>{21E28E88-0A9C-4936-9617-C945AD320152}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Laba63RecursUnitTest</RootNamespace>
+    <RootNamespace>Laba64RecursUnitTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectSubType>NativeUnitTestProject</ProjectSubType>
   </PropertyGroup>
@@ -156,7 +156,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Laba6.3RecursUnitTest.cpp" />
+    <ClCompile Include="Laba6.4RecursUnitTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -168,8 +168,8 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\6.3Recurs\6.3Recurs.vcxproj">
-      <Project>{5befa368-baf5-46dd-8d4a-26929d259508}</Project>
+    <ProjectReference Include="..\6.4Recurs\6.4Recurs.vcxproj">
+      <Project>{4201cae8-cc57-45ac-b060-2a011f6a97b8}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

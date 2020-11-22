@@ -19,24 +19,24 @@ void Print(int* B, const int size, int num)
         cout << endl;
 }
 
-int Suma(int* B, int num, int i)
+int Product(int* B, int num, int i)
 {
     if (i < num)
     {
         if ((i % 2) == 0) {
-            return B[i] + Suma(B, num, i + 1);
+            return B[i] * Product(B, num, i + 1);
         }
         else {
-            return Suma(B, num, i + 1);
+            return Product(B, num, i + 1);
         }
     }
     else
-        return 0;
+        return 1;
 }
 
 int FindFirst(int B[], int num, int i)
 {
-    if (B[num] == 0)
+    if (B[i] == 0)
         return i;
     if (i < num - 1)
         return FindFirst(B, num, i + 1);
@@ -45,10 +45,10 @@ int FindFirst(int B[], int num, int i)
 }
 int FindSecond(int B[], int num, int i)
 {
-    if (B[num] == 0)
+    if (B[i] == 0)
         return i;
-    if (i == num - 1)
-        return FindFirst(B, num, i - 1);
+    if (i != 0)
+        return FindSecond(B, num, i - 1);
     else
         return -1;
 }
@@ -56,8 +56,9 @@ int FindSecond(int B[], int num, int i)
 
 int Suma0(int* B, int firstZeroIndex, int lastZeroIndex, int num, int i)
 {
-    if (num < lastZeroIndex)
-        return B[i] + Suma0(B, lastZeroIndex, i + 1, num, 0);
+    if (i < lastZeroIndex) {
+        return B[i] + Suma0(B, firstZeroIndex, lastZeroIndex, num, i + 1);
+    }
     else
         return 0;
 }
@@ -93,22 +94,26 @@ int main()
     Create(B, num, Low, High, 0);
 
     Print(B, num, 0);
-    cout << "Suma = " << Suma(B, num, 0) << endl;
-   
-    cout << "Modified massiv: " << endl;
+    cout << "Product = " << Product(B, num, 0) << endl;
+    cout << endl;
+
+    cout << "Modified array: " << endl;
     Sort(B, num, 1);
     Print(B, num, 0);
-
+    cout << endl;
 
     int firstZeroIndex = FindFirst(B, num, 0);
-    int lastZeroIndex = FindSecond(B, num, 0);
-    
+    cout << "firstZeroIndex = " << firstZeroIndex << endl;
+    int lastZeroIndex = FindSecond(B, num, num - 1);
+    cout << "lastZeroIndex = " << lastZeroIndex << endl;
+    cout << endl;
+
     if (firstZeroIndex == -1)
     {
         cout << "No values to sum" << endl;
         return -1;
     }
-    cout << "Suma values between the first zero and the second = " << Suma0(B, firstZeroIndex, lastZeroIndex, num, 0) << endl;
+    cout << "Sum of values between the first zero and the second = " << Suma0(B, firstZeroIndex, lastZeroIndex, num, 0) << endl;
   
     delete[] B;
 
